@@ -96,24 +96,80 @@ public:
             FRONT_Position++;
             }
         cout << endl;
+        }
+        else
+        {
+            //jika FRONT <= REAR, iterasi dari FRONT hingga alhir array
+            while (FRONT_Position <= max - 1)
+            {
+                cout << queue_array[FRONT_Position] << "  ";
+                FRONT_Position++;
+            }
+
+            FRONT_Position = 0;
+
+            //iterasi dari awal array hingga rear
+            while (FRONT_Position <= REAR_Position)
+            {
+                cout << queue_array[FRONT_Position] << "  ";
+                FRONT_Position++;
+            }
+            cout << endl;
+        }
     }
-    else
+};
+
+int main()
+{
+    Queues q;
+    char ch;
+
+    while (true)
     {
-        //jika FRONT <= REAR, iterasi dari FRONT hingga alhir array
-        while (FRONT_Position <= max - 1)
+        try
         {
-            cout << queue_array[FRONT_Position] << "  ";
-            FRONT_Position++;
+            cout << "Menu" << endl;
+            cout << "1. Implement insert operation" << endl;
+            cout << "2. Implement Delete Operation" << endl;
+            cout << "3. Display values" << endl;
+            cout << "4. Exit" << endl;
+            cout << "Enter your choice (1-4): ";
+            cin >> ch;
+            cout << endl;
+
+            switch (ch)
+            {
+            case '1':
+            {
+                
+                q.insert();
+                break;
+            }
+            case 2:
+            {
+                q.remove();
+                break;
+            }
+            case '3':
+            {
+                q.display();
+                break;
+            }
+            case '4':
+            {
+                return 0;
+            }
+            default:
+            {
+                cout << "Invalid option!!!" << endl;
+                break;
+            }
+            }
         }
-
-        FRONT_Position = 0;
-
-        //iterasi dari awal array hingga rear
-        while (FRONT_Position <= REAR_Position)
+        catch (exception &e)
         {
-            cout << queue_array[FRONT_Position] << "  ";
-            FRONT_Position++;
+            cout << "check for the values entered." << endl;
         }
-        cout << endl;
     }
+    return 0;
 }
